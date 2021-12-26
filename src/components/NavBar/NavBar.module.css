@@ -1,4 +1,4 @@
-/* .navbar {
+.navbar {
   display: flex;
   box-shadow: 0 2px 4px lightgrey;
 }
@@ -16,4 +16,4 @@
 
 .navbarItem:nth-child(1) {
   color: indianred;
-} */
+}
