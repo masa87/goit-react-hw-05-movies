@@ -1,11 +1,7 @@
 // import { render } from "@testing-library/react";
 import React, { useState, useEffect } from "react";
 import Loader from "react-loader-spinner";
-
-// import fetchApi from "../../utils/api";
 import MovieItems from "../MovieItems/MovieItems";
-import NavBar from "../NavBar/NavBar";
-// import s from "./HomePage.module.css";
 
 const HomePage = () => {
   const [movies, setMovies] = useState([]);
@@ -32,7 +28,6 @@ const HomePage = () => {
       .then((response) => {
         setMovies(response);
         setLoaded(true);
-        // console.log(response);
         console.log(movies);
       })
       .catch((err) => {
@@ -47,15 +42,6 @@ const HomePage = () => {
   });
   return (
     <>
-      {/* <nav className={s.navbar}>
-        <ul className={s.navbarList}>
-          <li className={s.navbarItem} onClick={renderMovies}>
-            Home
-          </li>
-          <li className={s.navbarItem}>Movies</li>
-        </ul>
-      </nav> */}
-      <NavBar renderMovies={renderMovies} />
       <section>
         <ul>
           <>

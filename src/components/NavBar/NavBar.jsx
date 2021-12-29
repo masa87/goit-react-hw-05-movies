@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import s from "./NavBar.module.css";
 
 const NavBar = ({ renderMovies }) => {
@@ -6,9 +7,11 @@ const NavBar = ({ renderMovies }) => {
     <>
       <nav className={s.navbar}>
         <ul className={s.navbarList}>
-          <li className={s.navbarItem} onClick={renderMovies}>
-            Home
-          </li>
+          <Link className={s.navbarLink} to={"/"}>
+            <li className={s.navbarItem} onClick={renderMovies}>
+              Home
+            </li>
+          </Link>
           <li className={s.navbarItem}>Movies</li>
         </ul>
       </nav>

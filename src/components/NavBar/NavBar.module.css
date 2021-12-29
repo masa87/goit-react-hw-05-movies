@@ -8,6 +8,10 @@
   list-style: none;
 }
 
+.navbarLink {
+  text-decoration: none;
+}
+
 .navbarItem {
   margin-left: 10px;
   font-weight: 500;
