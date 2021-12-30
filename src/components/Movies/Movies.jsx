@@ -31,7 +31,7 @@ const Movies = () => {
   };
 
   useEffect(() => {
-    if (query === null) {
+    if (query === null || query === "") {
       setMovies([]);
       return;
     }

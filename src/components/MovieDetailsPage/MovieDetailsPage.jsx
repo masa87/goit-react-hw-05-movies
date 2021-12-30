@@ -26,14 +26,14 @@ const MovieDetailsPage = () => {
     fetchApi(id);
   }, [id, setMovie]);
 
-  const { original_title, poster_path, vote_average, overview, genres } = movie;
+  const { original_title, poster_path, vote_average, overview } = movie;
   const userScore = vote_average * 10;
 
   return (
     <>
       <button onClick={goBack}>Go back</button>
       <div className={s.MovieInfo}>
-        {poster_path !== null ? (
+        {poster_path !== undefined ? (
           <img
             className={s.MovieInfoImg}
             src={`${BASE_URL}${POSTER_SIZE}${poster_path}`}
@@ -52,7 +52,7 @@ const MovieDetailsPage = () => {
       <div>
         <h4>Additional information</h4>
         <ul>
-          <li>
+          <li key={id}>
             <Link to={`/movies/${id}/cast`}>Cast</Link>
           </li>
           <li>

@@ -1,17 +1,19 @@
-import React, { Suspense, lazy } from "react";
+import React, { Suspense } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import NavBar from "./components/NavBar/NavBar";
-import HomePage from "./components/HomePage/HomePage";
-import MovieDetailsPage from "./components/MovieDetailsPage/MovieDetailsPage";
-import Cast from "./components/Cast/Cast";
-import Reviews from "./components/Reviews/Reviews";
-import Movies from "./components/Movies/Movies";
 import Loader from "react-loader-spinner";
+
+const NavBar = React.lazy(() => import("./components/NavBar/NavBar"));
+const HomePage = React.lazy(() => import("./components/HomePage/HomePage"));
+const MovieDetailsPage = React.lazy(() =>
+  import("./components/MovieDetailsPage/MovieDetailsPage")
+);
+const Cast = React.lazy(() => import("./components/Cast/Cast"));
+const Reviews = React.lazy(() => import("./components/Reviews/Reviews"));
+const Movies = React.lazy(() => import("./components/Movies/Movies"));
 
 const App = () => {
   return (
     <BrowserRouter>
-      <NavBar />
       <Suspense
         fallback={
           <Loader
@@ -22,6 +24,7 @@ const App = () => {
             timeout={3000}
           />
         }>
+        <NavBar />
         <Routes>
           <Route
             path="/"
