@@ -1,12 +1,13 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import s from "./MovieDetailsPage.module.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const MovieDetailsPage = () => {
   const { id } = useParams();
   const [movie, setMovie] = useState([]);
-  const [posterP, setPoster] = useState("");
+  const navigate = useNavigate();
+  const goBack = () => navigate(-1);
 
   const BASE_URL = "http://image.tmdb.org/t/p/";
   const POSTER_SIZE = "w500";
@@ -18,23 +19,26 @@ const MovieDetailsPage = () => {
       .then((response) => response.json())
       .then((data) => {
         setMovie(data);
-        setPoster(data.poster_path);
       })
       .catch((err) => console.log(err));
   };
   useEffect(() => {
     fetchApi(id);
-  }, [id]);
+  }, [id, setMovie]);
 
   const { original_title, poster_path, vote_average, overview, genres } = movie;
-  const poster = `${BASE_URL}${POSTER_SIZE}${posterP}`;
   const userScore = vote_average * 10;
 
   return (
     <>
+      <button onClick={goBack}>Go back</button>
       <div className={s.MovieInfo}>
         {poster_path !== null ? (
-          <img className={s.MovieInfoImg} src={poster} alt="video poster" />
+          <img
+            className={s.MovieInfoImg}
+            src={`${BASE_URL}${POSTER_SIZE}${poster_path}`}
+            alt="movie poster"
+          />
         ) : (
           `no poster image`
         )}

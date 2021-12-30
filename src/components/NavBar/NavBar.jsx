@@ -7,12 +7,17 @@ const NavBar = ({ renderMovies }) => {
     <>
       <nav className={s.navbar}>
         <ul className={s.navbarList}>
-          <Link className={s.navbarLink} to={"/"}>
-            <li className={s.navbarItem} onClick={renderMovies}>
+          <li className={s.navbarItem} onClick={renderMovies}>
+            <Link className={s.navbarLink} to={"/"}>
               Home
-            </li>
-          </Link>
-          <li className={s.navbarItem}>Movies</li>
+            </Link>
+          </li>
+          <li className={s.navbarItem}>
+            <Link className={s.navbarLink} to={"/movies"}>
+              Movies
+            </Link>
+          </li>
+          {/* <li className={s.navbarItem}>Movies</li> */}
         </ul>
       </nav>
     </>

@@ -1,4 +1,3 @@
-// import { render } from "@testing-library/react";
 import React, { useState, useEffect } from "react";
 import Loader from "react-loader-spinner";
 import MovieItems from "../MovieItems/MovieItems";
@@ -28,7 +27,6 @@ const HomePage = () => {
       .then((response) => {
         setMovies(response);
         setLoaded(true);
-        console.log(movies);
       })
       .catch((err) => {
         console.log(err);
