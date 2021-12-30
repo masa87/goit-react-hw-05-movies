@@ -22,16 +22,17 @@ const Movies = () => {
     e.preventDefault();
     const form = e.currentTarget;
     const formQuery = form.elements.query.value;
-    setSearchQuery({ query: formQuery });
     if (formQuery === "") {
       return;
+    } else {
+      setSearchQuery({ query: formQuery });
+      fetchSearchMovies(query);
     }
-    fetchSearchMovies(query);
     form.reset();
   };
 
   useEffect(() => {
-    if (query === null || query === "") {
+    if (query === null || query === "" || movies.length < 1) {
       setMovies([]);
       return;
     }
