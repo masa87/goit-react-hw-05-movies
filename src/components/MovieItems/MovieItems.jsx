@@ -1,10 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import s from "./MovieItems.module.css";
 
 const MovieItems = ({ id, title }) => {
   return (
-    <li key={id}>
-      <Link to={`/movies/${id}`}>{title}</Link>
+    <li className={s.MovieItemsItem} key={id}>
+      <Link className={s.MovieItemsLink} to={`/movies/${id}`}>
+        {title}
+      </Link>
     </li>
   );
 };

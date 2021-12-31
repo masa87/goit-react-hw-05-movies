@@ -1,6 +1,10 @@
 .navbar {
+  position: sticky;
+  top: 0px;
   display: flex;
   box-shadow: 0 2px 4px lightgrey;
+  z-index: 100;
+  background-color: #fff;
 }
 
 .navbarList {

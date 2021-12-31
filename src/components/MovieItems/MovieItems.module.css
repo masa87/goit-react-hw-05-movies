@@ -1,0 +1,17 @@
+.MovieItemsItem {
+  margin-bottom: 3px;
+  text-shadow: 1px 1px 1px lightgrey;
+}
+
+.MovieItemsItem:hover {
+}
+
+.MovieItemsLink {
+  text-decoration: none;
+  color: grey;
+}
+
+.MovieItemsLink:hover {
+  font-size: 20px;
+  color: #000;
+}

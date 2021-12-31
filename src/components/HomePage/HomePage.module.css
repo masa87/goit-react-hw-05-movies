@@ -1,19 +1,7 @@
-/* .navbar {
-  display: flex;
-  box-shadow: 0 2px 4px lightgrey;
-}
-
-.navbarList {
-  display: flex;
+.HomePageList {
   list-style: none;
 }
 
-.navbarItem {
-  margin-left: 10px;
-  font-weight: 500;
-  cursor: pointer;
+.header {
+  margin-left: 50px;
 }
-
-.navbarItem:nth-child(1) {
-  color: indianred;
-} */

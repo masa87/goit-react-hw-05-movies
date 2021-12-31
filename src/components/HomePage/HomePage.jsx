@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Loader from "react-loader-spinner";
 import MovieItems from "../MovieItems/MovieItems";
+import s from "./HomePage.module.css";
 
 const HomePage = () => {
   const [movies, setMovies] = useState([]);
@@ -41,7 +42,8 @@ const HomePage = () => {
   return (
     <>
       <section>
-        <ul>
+        <h2 className={s.header}>Top Trending Movies</h2>
+        <ul className={s.HomePageList}>
           <>
             {isLoaded === false ? (
               <Loader type="TailSpin" color="#00BFFF" height={80} width={80} />

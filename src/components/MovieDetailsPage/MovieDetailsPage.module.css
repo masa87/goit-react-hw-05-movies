@@ -1,7 +1,15 @@
+.Container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  max-width: 1200px;
+  margin: 10px auto;
+  padding: 20px;
+}
+
 .MovieInfo {
   display: flex;
-  /* align-items: center; */
-  margin-top: 10px;
+  /* margin-top: 10px; */
   padding-bottom: 5px;
   border-bottom: 1px solid rgb(201, 201, 201);
 }
@@ -23,4 +31,12 @@
 
 .GenresItem {
   margin-right: 5px;
+}
+
+.AdditionalInfoWrapper {
+}
+
+.backBtn {
+  position: sticky;
+  top: 50px;
 }
