@@ -26,7 +26,7 @@ const MovieDetailsPage = () => {
     fetchApi(id);
   }, [id, setMovie]);
 
-  const { original_title, poster_path, vote_average, overview } = movie;
+  const { original_title, poster_path, vote_average, overview, genres } = movie;
   const userScore = vote_average * 10;
 
   return (
@@ -40,19 +40,30 @@ const MovieDetailsPage = () => {
             alt="movie poster"
           />
         ) : (
-          `no poster image`
+          `movie poster image`
         )}
         <div className={s.MovieInfoWrapper}>
-          <h3 className={s.MovieInfoHeader}>{original_title}</h3>
+          <h2 className={s.MovieInfoHeader}>{original_title}</h2>
           <p className={s.MovieInfoDescription}>User Score: {userScore}%</p>
           <h3>Overview</h3>
           <p>{overview}</p>
+          <h3>Genres</h3>
+          <ul className={s.GenresList}>
+            {genres !== undefined
+              ? genres.map(({ id, name }) => (
+                  <li className={s.GenresItem} key={id}>
+                    {name}
+                    {", "}
+                  </li>
+                ))
+              : `No genres`}
+          </ul>
         </div>
       </div>
       <div>
         <h4>Additional information</h4>
         <ul>
-          <li key={id}>
+          <li>
             <Link to={`/movies/${id}/cast`}>Cast</Link>
           </li>
           <li>

@@ -14,3 +14,13 @@
   margin-left: 20px;
   margin-top: 10px;
 }
+
+.GenresList {
+  display: flex;
+  list-style: none;
+  padding-left: 0;
+}
+
+.GenresItem {
+  margin-right: 5px;
+}

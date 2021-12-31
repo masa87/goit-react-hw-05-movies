@@ -32,7 +32,7 @@ const Movies = () => {
   };
 
   useEffect(() => {
-    if (query === null || query === "" || movies.length < 1) {
+    if (query === null || query === "" || movies === null) {
       setMovies([]);
       return;
     }
@@ -47,7 +47,7 @@ const Movies = () => {
       </form>
       <ul>
         {movies.map(({ id, original_title }) => (
-          <li>
+          <li key={id}>
             <Link to={`/movies/${id}`}>{original_title}</Link>
           </li>
         ))}

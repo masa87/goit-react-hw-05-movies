@@ -6,7 +6,7 @@ const CastItem = ({ id, name, profile_path, character }) => {
   const poster = `${BASE_URL}${POSTER_SIZE}${profile_path}`;
 
   return (
-    <li>
+    <li key={id}>
       {profile_path !== null ? <img src={poster} alt="poster" /> : `no image`}
       <p>Name: {name}</p>
       <p>Character: {character}</p>
