@@ -37,7 +37,8 @@ const Movies = () => {
       return;
     }
     fetchSearchMovies(query);
-  }, [query]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [query, setSearchQuery]);
 
   return (
     <div>
