@@ -26,7 +26,14 @@ const MovieDetailsPage = () => {
     fetchApi(id);
   }, [id, setMovie]);
 
-  const { original_title, poster_path, vote_average, overview, genres } = movie;
+  const {
+    original_title,
+    poster_path,
+    vote_average,
+    overview,
+    genres,
+    release_date,
+  } = movie;
   const userScore = vote_average * 10;
 
   return (
@@ -47,32 +54,35 @@ const MovieDetailsPage = () => {
           )}
           <div className={s.MovieInfoWrapper}>
             <h2 className={s.MovieInfoHeader}>{original_title}</h2>
+            <div className={s.MovieReleaseWrapper}>
+              <p className={s.MovieDate}>{release_date} / </p>
+              <ul className={s.GenresList}>
+                {genres !== undefined
+                  ? genres.map(({ id, name }) => (
+                      <li className={s.GenresItem} key={id}>
+                        {name}
+                        {", "}
+                      </li>
+                    ))
+                  : `No genres`}
+              </ul>
+            </div>
             <p className={s.MovieInfoDescription}>User Score: {userScore}%</p>
-            <h3>Overview</h3>
-            <p>{overview}</p>
-            <h3>Genres</h3>
-            <ul className={s.GenresList}>
-              {genres !== undefined
-                ? genres.map(({ id, name }) => (
-                    <li className={s.GenresItem} key={id}>
-                      {name}
-                      {", "}
-                    </li>
-                  ))
-                : `No genres`}
+            <h3 className={s.Overview}>Overview:</h3>
+            <p className={s.OverviewDescr}>{overview}</p>
+            <ul className={s.InfoList}>
+              <li className={s.InfoItems}>
+                <Link className={s.InfoItem} to={`/movies/${id}/cast`}>
+                  Cast
+                </Link>
+              </li>
+              <li className={s.InfoItems}>
+                <Link className={s.InfoItem} to={`/movies/${id}/reviews`}>
+                  Reviews
+                </Link>
+              </li>
             </ul>
           </div>
-        </div>
-        <div>
-          <h4>Additional information</h4>
-          <ul>
-            <li>
-              <Link to={`/movies/${id}/cast`}>Cast</Link>
-            </li>
-            <li>
-              <Link to={`/movies/${id}/reviews`}>Reviews</Link>
-            </li>
-          </ul>
         </div>
       </div>
     </>

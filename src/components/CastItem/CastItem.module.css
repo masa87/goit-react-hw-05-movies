@@ -1,0 +1,26 @@
+.CastItem {
+  margin-right: 10px;
+  margin-bottom: 10px;
+  width: 150px;
+  padding: 5px 5px 0 5px;
+  box-shadow: 1px 1px 15px lightgrey;
+  transition: transform 0.3s;
+}
+.CastItem:hover {
+  transform: scale(1.05);
+}
+
+.CastItemImg {
+  width: 100%;
+}
+
+.CastItemName {
+  text-align: center;
+  font-size: 15px;
+}
+
+.CastItemChar {
+  text-align: center;
+  font-size: 12px;
+  color: rgb(134, 134, 134);
+}

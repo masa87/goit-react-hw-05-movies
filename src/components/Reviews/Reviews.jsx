@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import ReviewsItem from "../ReviewsItem/ReviewsItem";
+import s from "./Reviews.module.css";
 
 const Reviews = () => {
   const { id } = useParams();
@@ -23,7 +24,7 @@ const Reviews = () => {
 
   return (
     <>
-      <ul>
+      <ul className={s.ReviewsList}>
         {reviews !== null
           ? reviews.map(({ id, author, content }) => (
               <ReviewsItem key={id} id={id} author={author} content={content} />

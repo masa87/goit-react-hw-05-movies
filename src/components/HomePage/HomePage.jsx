@@ -43,7 +43,7 @@ const HomePage = () => {
     <>
       <section>
         <h2 className={s.header}>Top Trending Movies</h2>
-        <ul className={s.HomePageList}>
+        <ol className={s.HomePageList}>
           <>
             {isLoaded === false ? (
               <Loader type="TailSpin" color="#00BFFF" height={80} width={80} />
@@ -53,7 +53,7 @@ const HomePage = () => {
               ))
             )}
           </>
-        </ul>
+        </ol>
       </section>
     </>
   );

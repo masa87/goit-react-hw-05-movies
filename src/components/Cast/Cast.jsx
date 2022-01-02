@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import CastItem from "../CastItem/CastItem";
+import s from "./Cast.module.css";
 
 const Cast = () => {
   const { id } = useParams();
@@ -23,7 +24,7 @@ const Cast = () => {
 
   return (
     <>
-      <ul>
+      <ul className={s.CastList}>
         {cast !== null
           ? cast.map(({ id, name, profile_path, character }) => (
               <CastItem
