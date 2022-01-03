@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 import { Link } from "react-router-dom";
+import s from "./Movies.module.css";
 
 const Movies = () => {
   const [movies, setMovies] = useState([]);
@@ -41,15 +42,19 @@ const Movies = () => {
   }, [query, setSearchQuery]);
 
   return (
-    <div>
-      <form onSubmit={onSubmit}>
-        <input type="text" name="query" />
-        <button type="submit">Search</button>
+    <div className={s.MovieWrapper}>
+      <form className={s.MovieForm} onSubmit={onSubmit}>
+        <input className={s.MovieInput} type="text" name="query" />
+        <button className={s.MovieBtn} type="submit">
+          Search
+        </button>
       </form>
-      <ul>
+      <ul className={s.MovieList}>
         {movies.map(({ id, original_title }) => (
-          <li key={id}>
-            <Link to={`/movies/${id}`}>{original_title}</Link>
+          <li data-icon="▶" className={s.MovieItem} key={id}>
+            <Link className={s.MovieLink} to={`/movies/${id}`}>
+              {original_title}
+            </Link>
           </li>
         ))}
       </ul>
